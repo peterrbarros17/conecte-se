@@ -26,7 +26,7 @@ export default function Home() {
           <div className="flex items-center text-sm gap-4">
             <div className="flex items-center gap-2">
               <FaCheckCircle size={18} />
-              <p className="tracking-wider">Youtube, Streaming</p>
+              <p className="tracking-wider">Twitch, Streaming</p>
             </div>
             <div className="flex items-center gap-2">
               <FaLocationDot size={18} />
