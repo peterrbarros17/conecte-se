@@ -49,7 +49,7 @@ export default function Home() {
           <Link
             href="https://www.youtube.com/@UPeter"
             target="_blank"
-            className="bg-[#333] w-[300px] py-2 px-4 rounded-xl flex items-center justify-center gap-4"
+            className="bg-[#333] w-[300px] py-2 px-4 rounded-xl flex items-center justify-center gap-4 hover:bg-lime-500 text-white transition-all duration-150 ease-in"
           >
             <FaYoutube size={28} />
             <p>Youtube - Fortnite</p>
@@ -58,7 +58,7 @@ export default function Home() {
           <Link
             href="https://www.youtube.com/@opitaozera"
             target="_blank"
-            className="bg-[#333] w-[300px] py-2 px-4 rounded-xl flex items-center justify-center gap-4"
+            className="bg-[#333] w-[300px] py-2 px-4 rounded-xl flex items-center justify-center gap-4 hover:bg-lime-500 text-white transition-all duration-150 ease-in"
           >
             <FaYoutube size={28} />
             <p>Youtube - Séries</p>
@@ -67,7 +67,7 @@ export default function Home() {
           <Link
             href="https://www.instagram.com/upeter_r/"
             target="_blank"
-            className="bg-[#333] w-[300px] py-2 px-4 rounded-xl flex items-center justify-center gap-4"
+            className="bg-[#333] w-[300px] py-2 px-4 rounded-xl flex items-center justify-center gap-4 hover:bg-lime-500 text-white transition-all duration-150 ease-in"
           >
             <FaInstagram size={28} />
             <p>Instagram</p>
@@ -76,7 +76,7 @@ export default function Home() {
           <Link
             href="https://www.twitch.tv/opitaozera"
             target="_blank"
-            className="bg-[#333] w-[300px] py-2 px-4 rounded-xl flex items-center justify-center gap-4"
+            className="bg-[#333] w-[300px] py-2 px-4 rounded-xl flex items-center justify-center gap-4 hover:bg-lime-500 text-white transition-all duration-150 ease-in"
           >
             <FaTwitch size={28} />
             <p>Twitch - OpitaoZera</p>
@@ -85,7 +85,7 @@ export default function Home() {
           <Link
             href="https://discord.gg/kTHb8aeYnC"
             target="_blank"
-            className="bg-[#333] w-[300px] py-2 px-4 rounded-xl flex items-center justify-center gap-4"
+            className="bg-[#333] w-[300px] py-2 px-4 rounded-xl flex items-center justify-center gap-4 hover:bg-lime-500 text-white transition-all duration-150 ease-in"
           >
             <FaDiscord size={28} />
             <p>Discord - OpitaoZera</p>
