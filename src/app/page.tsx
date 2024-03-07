@@ -18,79 +18,125 @@ const inter = Inter({
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-6 sm:p-12">
-      <div className="z-10 max-w-[420px] gap-4 w-full flex flex-col text-center items-center justify-center bg-[#222] px-10 py-4 rounded-xl">
+    <main className="flex w-full h-full items-center justify-center my-2">
+      <div className="z-10 w-[50em] gap-4 flex flex-col text-center items-center justify-center bg-[var(--dark-grey)] p-0 md:p-10 md:rounded-xl">
         <header className="flex flex-col items-center justify-center gap-2">
           <Image alt="creator" src={creator} className="w-40 rounded-full" />
           <h1 className="text-2xl">UPeter</h1>
           <div className="flex items-center text-sm gap-4">
             <div className="flex items-center gap-2">
               <FaCheckCircle size={18} />
-              <p className="tracking-wider">Twitch, Streaming</p>
+              <p className="">Twitch, Streaming</p>
             </div>
             <div className="flex items-center gap-2">
               <FaLocationDot size={18} />
-              <p className="tracking-wider">Fortaleza, Brasil</p>
+              <p className="">Fortaleza, Brasil</p>
             </div>
           </div>
-          <p className="text-lime-500 p-2 text-[16px] italic tracking-wider">
+          <p className="text-[var(--white)] p-2 text-[16px] ">
             Amo jogos digitais e sou apaixado em transmitir isso atravez de
             lives.
           </p>
           <a
             href="mailto:upeter2019@gmail.com"
             target="_blank"
-            className={`bg-lime-500 p-2 text-black rounded-lg hover:bg-white hover:text-black transition-all ease-in duration-300 ${inter.className}`}
+            className={`bg-[var(--green)] p-2 text-[var(--off-black)] rounded-lg hover:bg-white hover:text-[var(--off-black)] transition-all ease-in duration-300 ${inter.className}`}
           >
             upeter2019@gmail.com
           </a>
         </header>
-        <nav className={`flex flex-col gap-4 ${inter.className}`}>
+        <nav className={`flex gap-4 ${inter.className}`}>
           <Link
             href="https://www.youtube.com/@UPeter"
             target="_blank"
-            className="bg-[#333] w-[300px] py-2 px-4 rounded-xl flex items-center justify-center gap-4 hover:bg-lime-500 text-white transition-all duration-150 ease-in"
+            className="bg-[var(--grey)] w-10 h-10 rounded-full p-2 flex items-center justify-center gap-4 hover:text-[var(--green)] text-[var(--green)] transition-all duration-150 ease-in"
           >
             <FaYoutube size={28} />
-            <p>Youtube - Fortnite</p>
           </Link>
 
           <Link
             href="https://www.youtube.com/@opitaozera"
             target="_blank"
-            className="bg-[#333] w-[300px] py-2 px-4 rounded-xl flex items-center justify-center gap-4 hover:bg-lime-500 text-white transition-all duration-150 ease-in"
+            className="bg-[var(--grey)] w-10 h-10 rounded-full p-2 flex items-center justify-center gap-4 hover:text-[var(--green)] text-[var(--green)] transition-all duration-150 ease-in"
           >
             <FaYoutube size={28} />
-            <p>Youtube - Séries</p>
           </Link>
 
           <Link
             href="https://www.instagram.com/upeter_r/"
             target="_blank"
-            className="bg-[#333] w-[300px] py-2 px-4 rounded-xl flex items-center justify-center gap-4 hover:bg-lime-500 text-white transition-all duration-150 ease-in"
+            className="bg-[var(--grey)] w-10 h-10 rounded-full p-2 flex items-center justify-center gap-4 hover:text-[var(--green)] text-[var(--green)] transition-all duration-150 ease-in"
           >
             <FaInstagram size={28} />
-            <p>Instagram</p>
           </Link>
 
           <Link
             href="https://www.twitch.tv/opitaozera"
             target="_blank"
-            className="bg-[#333] w-[300px] py-2 px-4 rounded-xl flex items-center justify-center gap-4 hover:bg-lime-500 text-white transition-all duration-150 ease-in"
+            className="bg-[var(--grey)] w-10 h-10 rounded-full p-2 flex items-center justify-center gap-4 hover:text-[var(--green)] text-[var(--green)] transition-all duration-150 ease-in"
           >
             <FaTwitch size={28} />
-            <p>Twitch - OpitaoZera</p>
           </Link>
 
           <Link
             href="https://discord.gg/kTHb8aeYnC"
             target="_blank"
-            className="bg-[#333] w-[300px] py-2 px-4 rounded-xl flex items-center justify-center gap-4 hover:bg-lime-500 text-white transition-all duration-150 ease-in"
+            className="bg-[var(--grey)] w-10 h-10 rounded-full p-2 flex items-center justify-center gap-4 hover:text-[var(--green)] text-[var(--green)] transition-all duration-150 ease-in"
           >
             <FaDiscord size={28} />
-            <p>Discord - OpitaoZera</p>
           </Link>
         </nav>
+        <article className="flex flex-col justify-center items-center md:items-stretch gap-4 md:flex md:flex-row">
+          <p className="w-1/2 bg-white text-black p-4  rounded-md">{`Use code "UPETER-YT" na loja da epic games`}</p>
+          <p className="w-1/2 bg-white text-black p-4  rounded-md">
+            Envie uma{" "}
+            <a
+              href="https://livepix.gg/upeter"
+              target="__blank"
+              className="underline"
+            >
+              donate
+            </a>{" "}
+            para o streamer
+          </p>
+        </article>
+        <section>
+          <ul className="text-2xl flex flex-col gap-4">
+            <li className="">
+              <h1 className="w-full bg-[var(--grey)] py-2">Último vídeo</h1>
+              <iframe
+                className="w-[24rem] md:w-[560px] md:h-[315px] h-[20rem]"
+                src="https://www.youtube.com/embed/8izaq1g6Ez4?si=WzYAwKuZLMuTRXfE"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </li>
+            <li>
+              <h1 className="w-full bg-[var(--grey)] py-2">Última live</h1>
+              <iframe
+                className="w-[24rem] md:w-[560px] md:h-[315px] h-[20rem]"
+                src="https://www.youtube.com/embed/nlqc53O0GyU?si=bLzV6uX7L0nRzmqf"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </li>
+            <li>
+              <h1 className="w-full bg-[var(--grey)] py-2">Última série</h1>
+              <iframe
+                className="w-[24rem] md:w-[560px] md:h-[315px] h-[20rem]"
+                src="https://www.youtube.com/embed/Na6NtZmx5Vc?si=VNHXL6XmA5FlhmNi"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </li>
+          </ul>
+        </section>
       </div>
     </main>
   );
