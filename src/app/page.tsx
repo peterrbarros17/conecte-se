@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { Poppins } from "next/font/google";
+import { BiDonateHeart } from "react-icons/bi";
 
 const poppins = Poppins({
   weight: ["700"],
@@ -18,10 +19,17 @@ const poppins = Poppins({
 
 export default function Home() {
   return (
-    <main className="flex w-full h-full items-center justify-center">
-      <div className="z-10 w-[50em] gap-4 flex flex-col text-center items-center justify-center bg-[var(--dark-grey)] p-0 md:p-10 md:rounded-xl mb-20">
+    <main className="flex items-center justify-center tracking-wide">
+      <div className="z-10 w-[50em] gap-10 flex flex-col text-center items-center justify-center bg-[var(--dark-grey)] p-2 md:p-10 md:rounded-xl mb-20">
         <header className="flex flex-col items-center justify-center gap-2">
-          <Image alt="creator" src={creator} className="w-40 rounded-full" />
+          <Image
+            alt="creator content upeter"
+            src={creator}
+            className="w-40 rounded-full"
+            width={595}
+            height={598}
+            priority={true}
+          />
           <h1 className="text-2xl">UPeter</h1>
           <div className="flex items-center text-sm gap-4 text-[var(--green)]">
             <div className="flex items-center gap-2">
@@ -87,8 +95,9 @@ export default function Home() {
           </Link>
         </nav>
         <article className="border-2 border-white rounded-md p-2 my-4">
-          <h2 className="relative -top-6 bg-[var(--white)] text-[var(--grey)] w-56 left-5 rounded-md text-lg md:text-xl">
-            Apoie o criador
+          <h2 className="relative -top-6 bg-[var(--white)] text-[var(--grey)] w-56 left-5 rounded-md text-[16px] justify-center flex gap-4 items-center">
+            <p>Me apoie</p>
+            <BiDonateHeart size={20} />
           </h2>
           <div className="flex flex-col justify-center items-center md:items-stretch gap-4 md:flex md:flex-row">
             <p className="w-1/2 bg-white text-black p-4  rounded-md">{`Use code "UPETER-YT" na loja da epic games`}</p>
