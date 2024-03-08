@@ -9,24 +9,24 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 
-const inter = Inter({
+const poppins = Poppins({
   weight: ["700"],
   subsets: ["latin"],
 });
 
 export default function Home() {
   return (
-    <main className="flex w-full h-full items-center justify-center my-2">
-      <div className="z-10 w-[50em] gap-4 flex flex-col text-center items-center justify-center bg-[var(--dark-grey)] p-0 md:p-10 md:rounded-xl">
+    <main className="flex w-full h-full items-center justify-center">
+      <div className="z-10 w-[50em] gap-4 flex flex-col text-center items-center justify-center bg-[var(--dark-grey)] p-0 md:p-10 md:rounded-xl mb-20">
         <header className="flex flex-col items-center justify-center gap-2">
           <Image alt="creator" src={creator} className="w-40 rounded-full" />
           <h1 className="text-2xl">UPeter</h1>
-          <div className="flex items-center text-sm gap-4">
+          <div className="flex items-center text-sm gap-4 text-[var(--green)]">
             <div className="flex items-center gap-2">
               <FaCheckCircle size={18} />
-              <p className="">Twitch, Streaming</p>
+              <p className="">Youtuber, Streamer</p>
             </div>
             <div className="flex items-center gap-2">
               <FaLocationDot size={18} />
@@ -40,12 +40,12 @@ export default function Home() {
           <a
             href="mailto:upeter2019@gmail.com"
             target="_blank"
-            className={`bg-[var(--green)] p-2 text-[var(--off-black)] rounded-lg hover:bg-white hover:text-[var(--off-black)] transition-all ease-in duration-300 ${inter.className}`}
+            className={`bg-[var(--grey)] p-2 text-[var(--white)] rounded-lg hover:bg-white hover:text-[var(--off-black)] transition-all ease-in duration-300 ${poppins.className}`}
           >
             upeter2019@gmail.com
           </a>
         </header>
-        <nav className={`flex gap-4 ${inter.className}`}>
+        <nav className={`flex gap-4 ${poppins.className}`}>
           <Link
             href="https://www.youtube.com/@UPeter"
             target="_blank"
@@ -86,19 +86,24 @@ export default function Home() {
             <FaDiscord size={28} />
           </Link>
         </nav>
-        <article className="flex flex-col justify-center items-center md:items-stretch gap-4 md:flex md:flex-row">
-          <p className="w-1/2 bg-white text-black p-4  rounded-md">{`Use code "UPETER-YT" na loja da epic games`}</p>
-          <p className="w-1/2 bg-white text-black p-4  rounded-md">
-            Envie uma{" "}
-            <a
-              href="https://livepix.gg/upeter"
-              target="__blank"
-              className="underline"
-            >
-              donate
-            </a>{" "}
-            para o streamer
-          </p>
+        <article className="border-2 border-white rounded-md p-2 my-4">
+          <h2 className="relative -top-6 bg-[var(--white)] text-[var(--grey)] w-56 left-5 rounded-md text-lg md:text-xl">
+            Apoie o criador
+          </h2>
+          <div className="flex flex-col justify-center items-center md:items-stretch gap-4 md:flex md:flex-row">
+            <p className="w-1/2 bg-white text-black p-4  rounded-md">{`Use code "UPETER-YT" na loja da epic games`}</p>
+            <p className="w-1/2 bg-white text-black p-4  rounded-md">
+              Envie uma{" "}
+              <a
+                href="https://livepix.gg/upeter"
+                target="__blank"
+                className="underline"
+              >
+                donate
+              </a>{" "}
+              para o streamer
+            </p>
+          </div>
         </article>
         <section>
           <ul className="text-2xl flex flex-col gap-4">
