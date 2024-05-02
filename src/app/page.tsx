@@ -36,8 +36,8 @@ export default function Home() {
             </div>
           </div>
           <p className="text-[var(--green)] p-2 text-[16px] bg-opacity-80 bg-slate-700 rounded-md">
-            Amo jogos digitais e sou apaixado em transmitir isso atravez de
-            lives.
+            Amo jogos digitais e sou apaixonado em transmitir isso através de
+            livestream.
           </p>
           <a
             href="mailto:upeter2019@gmail.com"
