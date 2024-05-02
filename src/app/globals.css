@@ -5,13 +5,12 @@
 :root {
   --white: hsl(0, 0%, 100%);
   --grey: hsl(0, 0%, 20%);
-  --green: hsl(75, 94%, 57%);
+  --green: hsl(0, 94%, 57%);
   --dark-grey: hsl(0, 0%, 12%);
   --off-black: hsl(0, 0%, 8%);
 }
 
 body {
-  background-color: var(--off-black);
   color: var(--white);
   font-size: 14px;
 }

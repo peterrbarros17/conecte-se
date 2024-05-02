@@ -9,18 +9,12 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
-import { Poppins } from "next/font/google";
 import { BiDonateHeart } from "react-icons/bi";
-
-const poppins = Poppins({
-  weight: ["700"],
-  subsets: ["latin"],
-});
 
 export default function Home() {
   return (
-    <main className="flex items-center justify-center tracking-wide">
-      <div className="z-10 w-[50em] gap-10 flex flex-col text-center items-center justify-center bg-[var(--dark-grey)] p-2 md:p-10 md:rounded-xl mb-20">
+    <main className="flex items-center justify-center tracking-wide relative bg-[url('https://wallpapers.com/images/hd/aesthetic-computer-4k-c9qdhe02pr84wh3a.jpg')] bg-cover bg-no-repeat bg-center">
+      <div className="z-10 w-[50em] gap-10 flex flex-col text-center items-center bg-slate-900 md:bg-slate-800 bg-opacity-55 justify-center p-2 md:p-10 md:rounded-xl mb-20">
         <header className="flex flex-col items-center justify-center gap-2">
           <Image
             alt="creator content upeter"
@@ -30,8 +24,8 @@ export default function Home() {
             height={598}
             priority={true}
           />
-          <h1 className="text-2xl">UPeter</h1>
-          <div className="flex items-center text-sm gap-4 text-[var(--green)]">
+          <h1 className={`text-xl `}>UPeter</h1>
+          <div className="flex items-center text-[16px] gap-4 ">
             <div className="flex items-center gap-2">
               <FaCheckCircle size={18} />
               <p className="">Youtuber, Streamer</p>
@@ -41,19 +35,19 @@ export default function Home() {
               <p className="">Fortaleza, Brasil</p>
             </div>
           </div>
-          <p className="text-[var(--white)] p-2 text-[16px] ">
+          <p className="text-[var(--green)] p-2 text-[16px] bg-opacity-80 bg-slate-700 rounded-md">
             Amo jogos digitais e sou apaixado em transmitir isso atravez de
             lives.
           </p>
           <a
             href="mailto:upeter2019@gmail.com"
             target="_blank"
-            className={`bg-[var(--grey)] p-2 text-[var(--white)] rounded-lg hover:bg-white hover:text-[var(--off-black)] transition-all ease-in duration-300 ${poppins.className}`}
+            className={`bg-[var(--grey)] p-2 text-[var(--white)] rounded-lg hover:bg-white hover:text-[var(--off-black)] transition-all ease-in duration-300 `}
           >
             upeter2019@gmail.com
           </a>
         </header>
-        <nav className={`flex gap-4 ${poppins.className}`}>
+        <nav className={`flex gap-4 `}>
           <Link
             href="https://www.youtube.com/@UPeter"
             target="_blank"
@@ -117,7 +111,9 @@ export default function Home() {
         <section>
           <ul className="text-2xl flex flex-col gap-4">
             <li className="">
-              <h1 className="w-full bg-[var(--grey)] py-2">Último vídeo</h1>
+              <h1 className="w-full bg-opacity-30 bg-slate-700 py-2">
+                Último vídeo
+              </h1>
               <iframe
                 className="w-[24rem] md:w-[560px] md:h-[315px] h-[20rem]"
                 src="https://www.youtube.com/embed/8izaq1g6Ez4?si=WzYAwKuZLMuTRXfE"
@@ -128,7 +124,9 @@ export default function Home() {
               ></iframe>
             </li>
             <li>
-              <h1 className="w-full bg-[var(--grey)] py-2">Última live</h1>
+              <h1 className="w-full bg-opacity-30 bg-slate-700 py-2">
+                Última live
+              </h1>
               <iframe
                 className="w-[24rem] md:w-[560px] md:h-[315px] h-[20rem]"
                 src="https://www.youtube.com/embed/nlqc53O0GyU?si=bLzV6uX7L0nRzmqf"
@@ -139,7 +137,9 @@ export default function Home() {
               ></iframe>
             </li>
             <li>
-              <h1 className="w-full bg-[var(--grey)] py-2">Última série</h1>
+              <h1 className="w-full bg-opacity-30 bg-slate-700 py-2">
+                Última série
+              </h1>
               <iframe
                 className="w-[24rem] md:w-[560px] md:h-[315px] h-[20rem]"
                 src="https://www.youtube.com/embed/Na6NtZmx5Vc?si=VNHXL6XmA5FlhmNi"

@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Epilogue } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
-  weight: ["400", "500", "600", "700"],
+const epilogue = Epilogue({
+  weight: ["600"],
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "UPeter | Redes Socias",
+  title: "UPeter | Conecte-se",
   description: "social media site upeter streamer",
 };
 
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <body className={epilogue.className}>{children}</body>
     </html>
   );
 }
