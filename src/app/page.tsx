@@ -10,8 +10,24 @@ import {
 } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { BiDonateHeart } from "react-icons/bi";
+import { fetchDataSerie, fetchDataVideo } from "@/utils/fetchData";
 
-export default function Home() {
+export default async function Home() {
+  const apiKeyUpeter = process.env.LATEST_VIDEO;
+  const channelId = "UCaJscJxs5LEuwFShmKr39tg";
+  const data = await fetchDataVideo(apiKeyUpeter, channelId, "medium");
+
+  const latestVideo = data.items[0].id.videoId;
+
+  const dataLive = await fetchDataSerie(apiKeyUpeter, channelId);
+  const latestLive = dataLive.items[0].id.videoId;
+
+  const apiKeyOpitaozera = process.env.LATEST_SERIE;
+  const channelIdOp = "UCwEtLdRuDPN96HEPzcy5mig";
+
+  const dataSerie = await fetchDataVideo(apiKeyOpitaozera, channelIdOp, "long");
+  const latestSerie = dataSerie.items[0].id.videoId;
+
   return (
     <main className="flex items-center justify-center tracking-wide relative bg-[url('https://wallpapers.com/images/hd/aesthetic-computer-4k-c9qdhe02pr84wh3a.jpg')] bg-cover bg-no-repeat bg-center">
       <div className="z-10 w-[50em] gap-10 flex flex-col text-center items-center bg-slate-900 md:bg-slate-800 bg-opacity-55 justify-center p-2 md:p-10 md:rounded-xl mb-20">
@@ -116,7 +132,7 @@ export default function Home() {
               </h1>
               <iframe
                 className="w-[24rem] md:w-[560px] md:h-[315px] h-[20rem]"
-                src="https://www.youtube.com/embed/8izaq1g6Ez4?si=WzYAwKuZLMuTRXfE"
+                src={`https://www.youtube.com/embed/${latestVideo}`}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -129,7 +145,7 @@ export default function Home() {
               </h1>
               <iframe
                 className="w-[24rem] md:w-[560px] md:h-[315px] h-[20rem]"
-                src="https://www.youtube.com/embed/nlqc53O0GyU?si=bLzV6uX7L0nRzmqf"
+                src={`https://www.youtube.com/embed/${latestLive}`}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -142,7 +158,7 @@ export default function Home() {
               </h1>
               <iframe
                 className="w-[24rem] md:w-[560px] md:h-[315px] h-[20rem]"
-                src="https://www.youtube.com/embed/Na6NtZmx5Vc?si=VNHXL6XmA5FlhmNi"
+                src={`https://www.youtube.com/embed/${latestSerie}`}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
