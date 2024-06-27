@@ -13,18 +13,21 @@ import { BiDonateHeart } from "react-icons/bi";
 import { fetchDataSerie, fetchDataVideo } from "@/utils/fetchData";
 
 export default async function Home() {
+  // ÚLTIMO VÍDEO DO CANAL UPETER
   const apiKeyUpeter = process.env.LATEST_VIDEO;
   const channelId = "UCaJscJxs5LEuwFShmKr39tg";
-  const data = await fetchDataVideo(apiKeyUpeter, channelId, "medium");
+  const data = await fetchDataVideo(apiKeyUpeter, channelId, "long");
 
   const latestVideo = data.items[0].id.videoId;
 
+  // ÚLTIMO LIVE DO CANAL UPETER
   const dataLive = await fetchDataSerie(apiKeyUpeter, channelId);
   const latestLive = dataLive.items[0].id.videoId;
 
   const apiKeyOpitaozera = process.env.LATEST_SERIE;
   const channelIdOp = "UCwEtLdRuDPN96HEPzcy5mig";
 
+  // ÚLTIMO VÍDEO DO CANAL OPITÃOZERA
   const dataSerie = await fetchDataVideo(apiKeyOpitaozera, channelIdOp, "long");
   const latestSerie = dataSerie.items[0].id.videoId;
 
