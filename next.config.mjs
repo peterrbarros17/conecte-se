@@ -8,6 +8,12 @@ const nextConfig = {
         pathname: "**",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "creator-photo.s3.us-east-2.amazonaws.com",
+        pathname: "**",
+        port: "",
+      },
     ],
   },
 };
