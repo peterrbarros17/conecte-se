@@ -4,7 +4,7 @@ export default function CreatorSupport() {
   return (
     <article className="border-2 border-white rounded-md p-2 my-4">
       <h2 className="relative -top-6 bg-[var(--white)] text-[var(--grey)] w-56 left-5 rounded-md text-[16px] justify-center flex gap-4 items-center">
-        <p>Me apoie</p>
+        <p>Apoie o criador</p>
         <BiDonateHeart size={20} />
       </h2>
       <div className="flex flex-col justify-center items-center md:items-stretch gap-4 md:flex md:flex-row">

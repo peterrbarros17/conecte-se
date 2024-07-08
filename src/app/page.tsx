@@ -1,7 +1,7 @@
-import NavIcons from "@/components/NavIcons";
 import CreatorSupport from "@/components/CreatorSupport";
 import ReleasedVideos from "@/components/ReleasedVideos";
 import CreatorInformation from "@/components/CreatorInformation";
+import SocialMediaIcons from "@/components/SocialMediaIcons";
 
 export default async function Home() {
   return (
@@ -9,7 +9,7 @@ export default async function Home() {
       <div className="z-10 w-[50em] gap-10 flex flex-col text-center items-center bg-slate-900 md:bg-slate-800 bg-opacity-55 justify-center p-2 md:p-10 md:rounded-xl mb-20">
         <CreatorInformation />
 
-        <NavIcons />
+        <SocialMediaIcons />
 
         <CreatorSupport />
 

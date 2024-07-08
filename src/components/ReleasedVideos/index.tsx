@@ -1,22 +1,22 @@
-import { fetchDataSerie, fetchDataVideo } from "@/api/fetchVideosData";
+import { fetchDataLive, fetchDataVideo } from "@/api/fetchVideosData";
 
 export default async function ReleasedVideos() {
   // ÚLTIMO VÍDEO DO CANAL UPETER
   const apiKeyUpeter = process.env.LATEST_VIDEO;
   const channelId = "UCaJscJxs5LEuwFShmKr39tg";
-  const data = await fetchDataVideo(apiKeyUpeter, channelId, "long");
+  const data = await fetchDataVideo(apiKeyUpeter, channelId, "any");
 
   const latestVideo = data.items[0].id.videoId;
 
   // ÚLTIMO LIVE DO CANAL UPETER
-  const dataLive = await fetchDataSerie(apiKeyUpeter, channelId);
+  const dataLive = await fetchDataLive(apiKeyUpeter, channelId);
   const latestLive = dataLive.items[0].id.videoId;
 
   const apiKeyOpitaozera = process.env.LATEST_SERIE;
   const channelIdOp = "UCwEtLdRuDPN96HEPzcy5mig";
 
   // ÚLTIMO VÍDEO DO CANAL OPITÃOZERA
-  const dataSerie = await fetchDataVideo(apiKeyOpitaozera, channelIdOp, "long");
+  const dataSerie = await fetchDataVideo(apiKeyOpitaozera, channelIdOp, "any");
   const latestSerie = dataSerie.items[0].id.videoId;
   return (
     <section>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FaDiscord, FaInstagram, FaTwitch, FaYoutube } from "react-icons/fa";
 
-export default function NavIcons() {
+export default function SocialMediaIcons() {
   return (
     <nav className={`flex gap-4 `}>
       <Link
