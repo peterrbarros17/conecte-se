@@ -8,6 +8,8 @@ Este é um pequeno projeto, para centralizar minhas redes sociais, e conteúdos 
 - Tailwind CSS
 - TypeScript
 - API do YouTube
+- Armazenamento no S3 da AWS
+- JSON em Gist do GitHub
 
 ## Funcionalidades
 
