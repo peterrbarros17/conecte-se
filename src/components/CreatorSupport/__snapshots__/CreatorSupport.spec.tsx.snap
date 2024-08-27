@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreatorSupport component should render the paragraphs with the correct text and class 1`] = `
+[
+  <p>
+    Apoie o criador
+  </p>,
+  <p
+    class="w-1/2 bg-white text-black p-4 rounded-md"
+  >
+    Use code "UPETER-YT" na loja da epic games
+  </p>,
+  <p
+    class="w-1/2 bg-white text-black p-4 rounded-md"
+  >
+    <a
+      class="underline"
+      href="https://livepix.gg/upeter"
+      target="__blank"
+    >
+      Envie uma donate para o streamer
+    </a>
+  </p>,
+]
+`;

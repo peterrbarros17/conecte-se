@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BiDonateHeart } from "react-icons/bi";
 
 export default function CreatorSupport() {
@@ -8,17 +9,15 @@ export default function CreatorSupport() {
         <BiDonateHeart size={20} />
       </h2>
       <div className="flex flex-col justify-center items-center md:items-stretch gap-4 md:flex md:flex-row">
-        <p className="w-1/2 bg-white text-black p-4  rounded-md">{`Use code "UPETER-YT" na loja da epic games`}</p>
-        <p className="w-1/2 bg-white text-black p-4  rounded-md">
-          Envie uma{" "}
-          <a
+        <p className="w-1/2 bg-white text-black p-4 rounded-md">{`Use code "UPETER-YT" na loja da epic games`}</p>
+        <p className="w-1/2 bg-white text-black p-4 rounded-md">
+          <Link
             href="https://livepix.gg/upeter"
             target="__blank"
             className="underline"
           >
-            donate
-          </a>{" "}
-          para o streamer
+            Envie uma donate para o streamer
+          </Link>
         </p>
       </div>
     </article>

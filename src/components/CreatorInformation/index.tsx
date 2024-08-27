@@ -1,5 +1,6 @@
 import { fetchCreatorData } from "@/api/fetchCreatorData";
 import Image from "next/image";
+import Link from "next/link";
 
 import { FaCheckCircle } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
@@ -18,7 +19,7 @@ export default async function CreatorInformation() {
         priority={true}
       />
       <h1 className={`text-xl `}>{creatorData.creator.creatorName}</h1>
-      <div className="flex items-center text-[16px] gap-4 ">
+      <section className="flex items-center text-[16px] gap-4 ">
         <div className="flex items-center gap-2">
           <FaCheckCircle size={18} />
           <p className="">{creatorData.creator.creatorPlatform}</p>
@@ -27,17 +28,17 @@ export default async function CreatorInformation() {
           <FaLocationDot size={18} />
           <p className="">{creatorData.creator.creatorLocation}</p>
         </div>
-      </div>
+      </section>
       <p className="text-[var(--green)] p-2 text-[16px] bg-opacity-80 bg-slate-700 rounded-md">
         {creatorData.creator.creatorPhraseMotivation}
       </p>
-      <a
+      <Link
         href="mailto:upeter2019@gmail.com"
         target="_blank"
         className={`bg-[var(--grey)] p-2 text-[var(--white)] rounded-lg hover:bg-white hover:text-[var(--off-black)] transition-all ease-in duration-300 `}
       >
         {creatorData.creator.creatorEmail}
-      </a>
+      </Link>
     </header>
   );
 }

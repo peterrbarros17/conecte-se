@@ -32,7 +32,7 @@ export default function SocialMediaIcons() {
   ];
 
   return (
-    <nav className={`flex gap-4 `}>
+    <nav className="flex gap-4">
       {socialMediaData.map((item) => (
         <LinkComponent href={item.href} key={item.id}>
           {item.icon}

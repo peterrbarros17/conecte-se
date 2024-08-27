@@ -1,12 +1,14 @@
 import Link from "next/link";
 
+interface LinkComponentProps {
+  href: string;
+  children: React.ReactElement;
+}
+
 const LinkComponent = ({
   href,
   children,
-}: {
-  href: string;
-  children: React.ReactElement;
-}) => {
+}: LinkComponentProps): React.ReactElement => {
   return (
     <Link
       href={href}

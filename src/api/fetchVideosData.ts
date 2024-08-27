@@ -1,17 +1,5 @@
-interface VideoData {
-  items: {
-    snippet: {
-      title: string;
-      description: string;
-      thumbnails: {
-        default: { url: string };
-        medium: { url: string };
-        high: { url: string };
-      };
-    };
-    id: { videoId: string };
-  }[];
-}
+import { VideoData } from "@/types/videoDataType";
+
 export async function fetchDataVideo(
   apiKey: string | undefined,
   channelId: string,
