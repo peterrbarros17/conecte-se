@@ -9,7 +9,7 @@ export default async function CreatorInformation() {
   const creatorData = await fetchCreatorData();
 
   return (
-    <header className="flex flex-col items-center justify-center gap-2">
+    <header className="flex flex-col items-center bg-[#1e1e1e] justify-center gap-2">
       <Image
         alt="creator content upeter"
         src={"https://creator-photo.s3.us-east-2.amazonaws.com/EU.png"}
@@ -18,7 +18,7 @@ export default async function CreatorInformation() {
         height={598}
         priority={true}
       />
-      <h1 className={`text-xl `}>{creatorData.creator.creatorName}</h1>
+      <h1 className="text-2xl mt-2.5 font-bold">{creatorData.creator.creatorName}</h1>
       <section className="flex items-center text-[16px] gap-4 ">
         <div className="flex items-center gap-2">
           <FaCheckCircle size={18} />

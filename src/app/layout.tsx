@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Epilogue } from "next/font/google";
 import "./globals.css";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const epilogue = Epilogue({
-  weight: ["600"],
+  weight: ["400", "600"],
   subsets: ["latin"],
 });
 
@@ -14,12 +15,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
-      <body className={epilogue.className}>{children}</body>
+    <html lang="pt-br" suppressHydrationWarning>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        />
+      </head>
+      <body className={epilogue.className}>
+        <ThemeToggle />
+        {children}
+      </body>
     </html>
   );
 }

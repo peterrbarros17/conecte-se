@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,6 +13,30 @@
 }
 
 body {
-  color: var(--white);
-  font-size: 14px;
+  @apply bg-dark-bg text-[#e0e0e0] font-rajdhani;
+}
+
+/* Adicione as classes dark mode */
+.dark body {
+  @apply bg-dark-bg;
+}
+
+.dark .bg-white {
+  @apply bg-gray-800;
+}
+
+.dark .text-gray-800 {
+  @apply text-gray-200;
+}
+
+.dark .text-gray-600 {
+  @apply text-gray-400;
+}
+
+.dark .text-gray-500 {
+  @apply text-gray-400;
+}
+
+.dark .bg-gray-50 {
+  @apply bg-gray-700;
 }

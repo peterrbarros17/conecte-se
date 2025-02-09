@@ -3,41 +3,55 @@ import { FaDiscord, FaInstagram, FaTwitch, FaYoutube } from "react-icons/fa";
 import LinkComponent from "./LinkComponent";
 
 export default function SocialMediaIcons() {
-  const socialMediaData = [
+  const socialLinks = [
     {
-      id: randomUUID(),
-      href: "https://www.youtube.com/@UPeter",
-      icon: <FaYoutube size={28} />,
+      icon: 'youtube',
+      href: 'https://www.youtube.com/@UPeter',
+      color: 'text-red-600',
+      title: 'Canal Principal'
     },
     {
-      id: randomUUID(),
-      href: "https://www.youtube.com/@opitaozera",
-      icon: <FaYoutube size={28} />,
+      icon: 'youtube',
+      href: 'https://www.youtube.com/@opitaozera',
+      color: 'text-red-600',
+      title: 'Canal Secundário'
     },
     {
-      id: randomUUID(),
-      href: "https://www.instagram.com/upeter_r/",
-      icon: <FaInstagram size={28} />,
+      icon: 'instagram',
+      href: 'https://www.instagram.com/upeter_r/',
+      color: 'text-pink-600',
+      title: 'Instagram'
     },
     {
-      id: randomUUID(),
-      href: "https://www.twitch.tv/opitaozera",
-      icon: <FaTwitch size={28} />,
+      icon: 'twitch',
+      href: 'https://www.twitch.tv/opitaozera',
+      color: 'text-purple-600',
+      title: 'Twitch'
     },
     {
-      id: randomUUID(),
-      href: "https://discord.gg/kTHb8aeYnC",
-      icon: <FaDiscord size={28} />,
+      icon: 'discord',
+      href: 'https://discord.gg/kTHb8aeYnC',
+      color: 'text-indigo-600',
+      title: 'Discord'
     },
   ];
 
   return (
-    <nav className="flex gap-4">
-      {socialMediaData.map((item) => (
-        <LinkComponent href={item.href} key={item.id}>
-          {item.icon}
-        </LinkComponent>
+    <div className="flex gap-6">
+      {socialLinks.map((social) => (
+        <a
+          key={social.href}
+          href={social.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={social.title}
+          className={`${social.color} hover:opacity-75 transition-opacity`}
+        >
+          <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center">
+            <i className={`fab fa-${social.icon} text-xl`}></i>
+          </div>
+        </a>
       ))}
-    </nav>
+    </div>
   );
 }
