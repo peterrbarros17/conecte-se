@@ -1,9 +1,15 @@
 import CreatorSupport from "@/components/CreatorSupport";
-import ReleasedVideos from "@/components/ReleasedVideos";
+import {
+  FeaturedVideo,
+  LiveAndSeries,
+  getReleasedVideos,
+} from "@/components/ReleasedVideos";
 import CreatorInformation from "@/components/CreatorInformation";
 import SocialMediaIcons from "@/components/SocialMediaIcons";
 
 export default async function Home() {
+  const { latestVideo, latestLive, latestSerie } = await getReleasedVideos();
+
   return (
     <main className="relative min-h-screen overflow-hidden">
       <div className="pointer-events-none fixed inset-0 -z-10">
@@ -23,23 +29,24 @@ export default async function Home() {
         />
       </div>
 
-      <div className="mx-auto w-full max-w-6xl px-4 pb-16 pt-20 sm:px-6 lg:px-8 lg:pb-24 lg:pt-24">
-        <div className="grid items-start gap-6 lg:grid-cols-[minmax(280px,380px)_1fr] lg:gap-8">
-          <aside className="animate-fade-up space-y-4 lg:sticky lg:top-8">
-            <article className="glass-card overflow-hidden">
+      <div className="mx-auto w-full max-w-7xl px-4 pb-16 pt-20 sm:px-6 lg:px-8 lg:pb-24 lg:pt-24">
+        <div className="grid items-stretch gap-6 lg:grid-cols-[minmax(280px,360px)_minmax(0,1fr)] lg:gap-8">
+          <aside className="animate-fade-up lg:row-span-2">
+            <article className="glass-card flex h-full flex-col overflow-hidden">
               <CreatorInformation />
-              <div className="border-t border-hairline px-6 pb-7 pt-5 sm:px-8">
+              <div className="mt-auto border-t border-hairline px-6 pb-7 pt-5 sm:px-8">
                 <p className="section-label mb-3 text-center">Redes</p>
                 <SocialMediaIcons />
               </div>
             </article>
-
-            <CreatorSupport />
           </aside>
 
-          <section className="animate-fade-up [animation-delay:120ms]">
-            <ReleasedVideos />
-          </section>
+          <FeaturedVideo videoId={latestVideo} />
+          <CreatorSupport />
+        </div>
+
+        <div className="mt-6 lg:mt-8">
+          <LiveAndSeries liveId={latestLive} serieId={latestSerie} />
         </div>
 
         <footer className="mt-12 text-center text-xs tracking-wide text-muted">

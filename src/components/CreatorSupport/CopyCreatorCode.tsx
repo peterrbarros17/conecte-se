@@ -20,7 +20,7 @@ export default function CopyCreatorCode({ code }: { code: string }) {
     <button
       type="button"
       onClick={handleCopy}
-      className="group flex w-full items-center justify-between gap-3 rounded-2xl border border-hairline bg-elevated/80 px-4 py-3.5 text-left transition hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-glow"
+      className="group flex h-full min-h-[5.5rem] w-full items-center justify-between gap-3 rounded-2xl border border-hairline bg-elevated/80 px-4 py-3.5 text-left transition hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-glow"
     >
       <span>
         <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">
