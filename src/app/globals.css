@@ -1,42 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --white: hsl(0, 0%, 100%);
-  --grey: hsl(0, 0%, 20%);
-  --green: hsl(0, 94%, 57%);
-  --dark-grey: hsl(0, 0%, 12%);
-  --off-black: hsl(0, 0%, 8%);
+  --canvas: #f3f1ee;
+  --surface: rgba(255, 255, 255, 0.78);
+  --elevated: #ffffff;
+  --ink: #14141c;
+  --muted: #5c5c68;
+  --hairline: rgba(20, 20, 28, 0.1);
+  --accent: #e11d48;
+  --accent-fg: #ffffff;
+  --brand: #7c3aed;
+  --shadow-card: 0 18px 50px -24px rgba(20, 20, 28, 0.28);
+  --shadow-glow: 0 0 0 1px rgba(225, 29, 72, 0.12),
+    0 10px 40px -12px rgba(225, 29, 72, 0.35);
+  color-scheme: light;
 }
 
-body {
-  @apply bg-dark-bg text-[#e0e0e0] font-rajdhani;
+.dark {
+  --canvas: #07070c;
+  --surface: rgba(16, 16, 24, 0.72);
+  --elevated: #16161f;
+  --ink: #f4f4f7;
+  --muted: #a1a1aa;
+  --hairline: rgba(255, 255, 255, 0.09);
+  --accent: #fb7185;
+  --accent-fg: #1a0a10;
+  --brand: #a78bfa;
+  --shadow-card: 0 24px 60px -28px rgba(0, 0, 0, 0.7);
+  --shadow-glow: 0 0 0 1px rgba(251, 113, 133, 0.18),
+    0 12px 48px -10px rgba(244, 63, 94, 0.35);
+  color-scheme: dark;
 }
 
-/* Adicione as classes dark mode */
-.dark body {
-  @apply bg-dark-bg;
+@layer base {
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply bg-canvas text-ink font-sans;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 35%, transparent);
+    color: var(--ink);
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-canvas;
+  }
 }
 
-.dark .bg-white {
-  @apply bg-gray-800;
+@layer components {
+  .glass-card {
+    @apply rounded-4xl border border-hairline bg-surface shadow-card backdrop-blur-2xl;
+  }
+
+  .section-label {
+    @apply text-[11px] font-semibold uppercase tracking-[0.18em] text-muted;
+  }
 }
 
-.dark .text-gray-800 {
-  @apply text-gray-200;
-}
-
-.dark .text-gray-600 {
-  @apply text-gray-400;
-}
-
-.dark .text-gray-500 {
-  @apply text-gray-400;
-}
-
-.dark .bg-gray-50 {
-  @apply bg-gray-700;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

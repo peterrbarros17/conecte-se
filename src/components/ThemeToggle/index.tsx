@@ -1,37 +1,37 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { FaSun, FaMoon } from 'react-icons/fa'
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 export default function ThemeToggle() {
-  const [darkMode, setDarkMode] = useState(false)
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const theme = localStorage.getItem('theme')
-    setDarkMode(theme === 'dark')
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark')
-    }
-  }, [])
+    setMounted(true);
+  }, []);
 
-  const toggleTheme = () => {
-    setDarkMode(!darkMode)
-    if (darkMode) {
-      document.documentElement.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
-    } else {
-      document.documentElement.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-    }
+  if (!mounted) {
+    return (
+      <span
+        className="fixed right-4 top-4 z-50 h-10 w-[6.5rem] rounded-full border border-hairline bg-surface/80 shadow-card backdrop-blur-md"
+        aria-hidden
+      />
+    );
   }
+
+  const isDark = resolvedTheme === "dark";
 
   return (
     <button
-      onClick={toggleTheme}
-      className="fixed top-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition-colors duration-200"
-      aria-label="Toggle theme"
+      type="button"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="fixed right-4 top-4 z-50 inline-flex h-10 items-center gap-2 rounded-full border border-hairline bg-surface/90 px-3.5 text-xs font-semibold text-ink shadow-card backdrop-blur-md transition hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-glow"
+      aria-label={isDark ? "Ativar tema claro" : "Ativar tema escuro"}
     >
-      {darkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
+      {isDark ? <FaSun size={13} /> : <FaMoon size={13} />}
+      {isDark ? "Claro" : "Escuro"}
     </button>
-  )
-} 
+  );
+}

@@ -1,21 +1,26 @@
 import Link from "next/link";
+import { FaHeart } from "react-icons/fa";
+import CopyCreatorCode from "./CopyCreatorCode";
 
 export default function CreatorSupport() {
   return (
-    <div className="space-y-3 w-full">
-      <p 
-        className="block w-full bg-primary-light hover:bg-primary-dark text-white font-semibold py-3 px-4 rounded-lg transition duration-200"
-      >
-        Use code &quot;UPETER-YT&quot; na loja da epic games
+    <section className="glass-card p-5 sm:p-6">
+      <h2 className="section-label">Apoie o criador</h2>
+      <p className="mt-2 text-sm text-muted">
+        Use o código na Epic ou envie uma doação pelo LivePix.
       </p>
-      <Link 
-        href="https://livepix.gg/upeter"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block w-full bg-secondary-light hover:bg-secondary-dark text-white font-semibold py-3 px-4 rounded-lg transition duration-200"
-      >
-        Envie uma donate para o streamer
-      </Link>
-    </div>
+      <div className="mt-4 space-y-3">
+        <CopyCreatorCode code="UPETER-YT" />
+        <Link
+          href="https://livepix.gg/upeter"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-rose-600 to-violet-600 px-4 py-3.5 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5 hover:brightness-110"
+        >
+          <FaHeart size={14} />
+          Fazer uma doação
+        </Link>
+      </div>
+    </section>
   );
 }
