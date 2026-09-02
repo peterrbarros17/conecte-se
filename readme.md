@@ -1,24 +1,105 @@
-# UPeter | Redes Socias
+# UPeter | Conecte-se
 
-Este é um pequeno projeto, para centralizar minhas redes sociais, e conteúdos criados na Web.
+Personal hub for **UPeter**, a YouTuber and streamer from Fortaleza, Brazil. The app centralizes social links, the latest YouTube videos and lives, and ways to support the creator (Epic Games creator code and LivePix donations).
 
-## Tecnologias Utilizadas
+Live profile: [YouTube @UPeter](https://www.youtube.com/@UPeter)
 
-- Next.js
-- Tailwind CSS
-- TypeScript
-- API do YouTube
-- Armazenamento no S3 da AWS
-- JSON em Gist do GitHub
+## Features
 
-## Funcionalidades
+- **Social links** — YouTube (main and secondary), Instagram, Twitch, and Discord
+- **Creator profile** — name, location, bio, and contact email (loaded from a GitHub Gist, with a local fallback)
+- **Latest content** — embeds for the most recent video, completed live, and series episode via the YouTube Data API
+- **Creator support** — copyable Epic Games code `UPETER-YT` and a donation CTA to [LivePix](https://livepix.gg/upeter)
+- **Theming** — dark by default, with a light/dark toggle (`next-themes`)
 
-1. **Centralização de Redes Sociais**:
-   - Links diretos para minhas redes sociais, incluindo YouTube, Instagram, Twitch e Discord.
-2. **Suporte ao Criador de Conteúdo**:
-   - Suporte através do uso do meu código na Epic Games no momento da compra de jogos.
-     ![alt text](Creator_Code_2.gif)
-   - Opção adicional para apoiar-me como criador de conteúdo através de doações usando a plataforma Livepix.
-     [text](https://livepix.gg/upeter)
-3. **Últimos Conteúdos**:
-   - Exibição dos meus últimos vídeos, séries e transmissões ao vivo.
+## Tech stack
+
+| Area | Tools |
+| --- | --- |
+| Framework | [Next.js](https://nextjs.org/) 14 (App Router) |
+| UI | React 18, Tailwind CSS, [react-icons](https://react-icons.github.io/react-icons/) |
+| Language | TypeScript |
+| Theming | [next-themes](https://github.com/pacocoursey/next-themes) |
+| Tests | Jest, React Testing Library |
+| Content | YouTube Data API v3, GitHub Gist, AWS S3 (profile photo) |
+
+## Getting started
+
+### Prerequisites
+
+- Node.js 18 or later
+- npm
+- A [YouTube Data API](https://developers.google.com/youtube/v3/getting-started) key if you want video embeds to load
+
+### Install
+
+```bash
+npm install
+```
+
+### Environment variables
+
+Create a `.env` file in the project root (this file is gitignored):
+
+```bash
+# YouTube Data API keys (can be the same key)
+LATEST_VIDEO=your_youtube_api_key
+LATEST_SERIE=your_youtube_api_key
+
+# GitHub Gist JSON filename (without .json)
+GIST=your_gist_filename
+```
+
+| Variable | Used for |
+| --- | --- |
+| `LATEST_VIDEO` | Latest video and latest completed live on the main channel |
+| `LATEST_SERIE` | Latest video on the secondary / series channel |
+| `GIST` | Remote JSON with creator name, location, bio, and email |
+
+The app still renders without these variables: profile data falls back to built-in defaults, and video cards show an empty state.
+
+### Run locally
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+### Production build
+
+```bash
+npm run build
+npm start
+```
+
+## Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Next.js dev server |
+| `npm run build` | Create a production build |
+| `npm start` | Serve the production build |
+| `npm run lint` | Run ESLint |
+| `npm test` | Run Jest once |
+| `npm run test:watch` | Run Jest in watch mode |
+
+## Project structure
+
+```text
+src/
+  app/                 # App Router layout, page, and global styles
+  api/                 # YouTube and Gist fetchers
+  components/          # Profile, socials, support, videos, theme
+  types/               # TypeScript types for API responses
+```
+
+## How it works
+
+1. **Profile** — `fetchCreatorData` reads a JSON file from a GitHub Gist. If the request fails, the UI uses hardcoded fallback data.
+2. **Photo** — the avatar is served from an AWS S3 bucket (`creator-photo.s3.us-east-2.amazonaws.com`).
+3. **Videos** — `getReleasedVideos` calls the YouTube Search API for the main channel (`UCaJscJxs5LEuwFShmKr39tg`) and the series channel (`UCwEtLdRuDPN96HEPzcy5mig`), then embeds the returned video IDs.
+
+## License
+
+Private personal project. All rights reserved.
