@@ -4,6 +4,14 @@ Personal hub for **UPeter**, a YouTuber and streamer from Fortaleza, Brazil. The
 
 Live profile: [YouTube @UPeter](https://www.youtube.com/@UPeter)
 
+## Home Page
+<img width="640" height="753" alt="image" src="https://github.com/user-attachments/assets/e4ff9502-caec-4088-8c47-043e4473340e" />
+
+<img width="640" height="753" alt="image" src="https://github.com/user-attachments/assets/f74d48d6-ff34-45f7-b4de-21d8d90eb0de" />
+
+<img width="396" height="870" alt="image" src="https://github.com/user-attachments/assets/e884ac12-6075-4e0e-ae07-24106fd4053c" />
+
+
 ## Features
 
 - **Social links** — YouTube (main and secondary), Instagram, Twitch, and Discord
