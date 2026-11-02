@@ -49,7 +49,7 @@ export async function getReleasedVideos(): Promise<VideoIds> {
       latestSerie = dataSerie.items[0].id.videoId;
     }
   } catch (error) {
-    console.error("Error fetching latest serie");
+    console.error("Error fetching latest serie", error);
   }
 
   return { latestVideo, latestLive, latestSerie };

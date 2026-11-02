@@ -24,19 +24,20 @@ Live profile: [YouTube @UPeter](https://www.youtube.com/@UPeter)
 
 | Area | Tools |
 | --- | --- |
-| Framework | [Next.js](https://nextjs.org/) 14 (App Router) |
-| UI | React 18, Tailwind CSS, [react-icons](https://react-icons.github.io/react-icons/) |
-| Language | TypeScript |
+| Framework | [Next.js](https://nextjs.org/) 16 (App Router) |
+| UI | React 19, Tailwind CSS 3, [react-icons](https://react-icons.github.io/react-icons/) |
+| Language | TypeScript 5 |
 | Theming | [next-themes](https://github.com/pacocoursey/next-themes) |
-| Tests | Jest, React Testing Library |
+| Tests | Jest 29, React Testing Library |
 | Content | YouTube Data API v3, GitHub Gist, AWS S3 (profile photo) |
 
 ## Getting started
 
 ### Prerequisites
 
-- Node.js 18 or later
+- Node.js 20.9 or later
 - npm
+- Optional: [nvm](https://github.com/nvm-sh/nvm) — run `nvm use` to select the version from `.nvmrc`
 - A [YouTube Data API](https://developers.google.com/youtube/v3/getting-started) key if you want video embeds to load
 
 ### Install
@@ -47,7 +48,13 @@ npm install
 
 ### Environment variables
 
-Create a `.env` file in the project root (this file is gitignored):
+Copy the example file to `.env.local` in the project root (`.env*` is gitignored):
+
+```bash
+cp .env.example .env.local
+```
+
+Then fill in the values:
 
 ```bash
 # YouTube Data API keys (can be the same key)
@@ -88,9 +95,11 @@ npm start
 | `npm run dev` | Start the Next.js dev server |
 | `npm run build` | Create a production build |
 | `npm start` | Serve the production build |
-| `npm run lint` | Run ESLint |
+| `npm run lint` | Run ESLint with the flat config |
+| `npm run typecheck` | Run TypeScript without emitting files |
 | `npm test` | Run Jest once |
 | `npm run test:watch` | Run Jest in watch mode |
+| `npm run verify` | Run lint, typecheck and tests |
 
 ## Project structure
 
