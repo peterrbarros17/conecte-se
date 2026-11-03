@@ -1,3 +1,5 @@
+# Automatically reviews pull requests using Robin AI.
+# Uses OpenRouter as the LLM provider.
 name: Robin
 
 on:
@@ -12,7 +14,7 @@ permissions:
 
 jobs:
   review:
-    uses: antongulin/robin/.github/workflows/review.yml@main
+    uses: antongulin/robin/.github/workflows/review.yml@v2
     secrets:
       LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
       LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
