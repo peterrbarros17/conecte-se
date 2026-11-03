@@ -2,6 +2,7 @@ import { fetchCreatorData } from "@/api/fetchCreatorData";
 import { CreatorDataType } from "@/types/creatorDataType";
 import Image from "next/image";
 import Link from "next/link";
+import { unstable_rethrow } from "next/navigation";
 import { FaCheckCircle } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 
@@ -24,7 +25,8 @@ export default async function CreatorInformation() {
     if (data?.creator?.creatorName) {
       creatorData = data;
     }
-  } catch {
+  } catch (error) {
+    unstable_rethrow(error);
     creatorData = FALLBACK;
   }
 

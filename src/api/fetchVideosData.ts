@@ -7,9 +7,11 @@ export async function fetchDataVideo(
 ): Promise<VideoData> {
   const res = await fetch(
     `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&type=video&videoDuration=${size}&maxResults=1`,
-    { next: { revalidate: 0 } }
+    { next: { revalidate: 300 } }
   );
-  if (!res.ok) console.log("Error");
+  if (!res.ok) {
+    throw new Error(`YouTube API responded with ${res.status}`);
+  }
 
   return res.json();
 }
@@ -19,9 +21,11 @@ export async function fetchDataLive(
 ): Promise<VideoData> {
   const res = await fetch(
     `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&eventType=completed&type=video&order=date&maxResults=1`,
-    { next: { revalidate: 0 } }
+    { next: { revalidate: 300 } }
   );
-  if (!res.ok) console.log("Error");
+  if (!res.ok) {
+    throw new Error(`YouTube API responded with ${res.status}`);
+  }
 
   return res.json();
 }

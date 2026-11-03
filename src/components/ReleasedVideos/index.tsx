@@ -1,4 +1,5 @@
 import { fetchDataLive, fetchDataVideo } from "@/api/fetchVideosData";
+import { unstable_rethrow } from "next/navigation";
 import type { ReactNode } from "react";
 import { FaCircle, FaFilm, FaYoutube } from "react-icons/fa";
 
@@ -29,6 +30,7 @@ export async function getReleasedVideos(): Promise<VideoIds> {
       latestVideo = data.items[0].id.videoId;
     }
   } catch (error) {
+    unstable_rethrow(error);
     console.error("Error fetching latest video", error);
   }
 
@@ -38,6 +40,7 @@ export async function getReleasedVideos(): Promise<VideoIds> {
       latestLive = dataLive.items[0].id.videoId;
     }
   } catch (error) {
+    unstable_rethrow(error);
     console.error("Error fetching latest live", error);
   }
 
@@ -49,6 +52,7 @@ export async function getReleasedVideos(): Promise<VideoIds> {
       latestSerie = dataSerie.items[0].id.videoId;
     }
   } catch (error) {
+    unstable_rethrow(error);
     console.error("Error fetching latest serie", error);
   }
 
