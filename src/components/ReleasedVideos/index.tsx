@@ -1,4 +1,5 @@
 import { fetchDataLive, fetchDataVideo } from "@/api/fetchVideosData";
+import type { VideoData } from "@/types/videoDataType";
 import { unstable_rethrow } from "next/navigation";
 import type { ReactNode } from "react";
 import { FaCircle, FaFilm, FaYoutube } from "react-icons/fa";
@@ -9,6 +10,8 @@ type VideoIds = {
   latestSerie: string;
 };
 
+type VideoLookup = () => Promise<VideoData>;
+
 type VideoCardProps = {
   title: string;
   videoId: string;
@@ -17,44 +20,41 @@ type VideoCardProps = {
   accentClass: string;
 };
 
+async function resolveVideoId(
+  label: string,
+  lookup: VideoLookup
+): Promise<string> {
+  try {
+    const data = await lookup();
+    const [first] = data.items;
+    if (first) {
+      return first.id.videoId;
+    }
+    return "";
+  } catch (error) {
+    unstable_rethrow(error);
+    console.error("Released Videos", `${label} lookup failed`);
+    return "";
+  }
+}
+
 export async function getReleasedVideos(): Promise<VideoIds> {
   const apiKeyUpeter = process.env.LATEST_VIDEO;
   const channelId = "UCaJscJxs5LEuwFShmKr39tg";
-  let latestVideo = "";
-  let latestLive = "";
-  let latestSerie = "";
+  const apiKeyOpitaozera = process.env.LATEST_SERIE;
+  const channelIdOp = "UCwEtLdRuDPN96HEPzcy5mig";
 
-  try {
-    const data = await fetchDataVideo(apiKeyUpeter, channelId, "any");
-    if (data && data.items && data.items.length > 0) {
-      latestVideo = data.items[0].id.videoId;
-    }
-  } catch (error) {
-    unstable_rethrow(error);
-    console.error("Error fetching latest video", error);
-  }
-
-  try {
-    const dataLive = await fetchDataLive(apiKeyUpeter, channelId);
-    if (dataLive && dataLive.items && dataLive.items.length > 0) {
-      latestLive = dataLive.items[0].id.videoId;
-    }
-  } catch (error) {
-    unstable_rethrow(error);
-    console.error("Error fetching latest live", error);
-  }
-
-  try {
-    const apiKeyOpitaozera = process.env.LATEST_SERIE;
-    const channelIdOp = "UCwEtLdRuDPN96HEPzcy5mig";
-    const dataSerie = await fetchDataVideo(apiKeyOpitaozera, channelIdOp, "any");
-    if (dataSerie && dataSerie.items && dataSerie.items.length > 0) {
-      latestSerie = dataSerie.items[0].id.videoId;
-    }
-  } catch (error) {
-    unstable_rethrow(error);
-    console.error("Error fetching latest serie", error);
-  }
+  const [latestVideo, latestLive, latestSerie] = await Promise.all([
+    resolveVideoId("Latest video", () =>
+      fetchDataVideo(apiKeyUpeter, channelId, "any")
+    ),
+    resolveVideoId("Latest live", () =>
+      fetchDataLive(apiKeyUpeter, channelId)
+    ),
+    resolveVideoId("Latest serie", () =>
+      fetchDataVideo(apiKeyOpitaozera, channelIdOp, "any")
+    ),
+  ]);
 
   return { latestVideo, latestLive, latestSerie };
 }
