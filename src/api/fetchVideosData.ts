@@ -1,31 +1,40 @@
-import { VideoData } from "@/types/videoDataType";
+import { fetchJsonWithTimeout, requireConfig } from "@/api/externalRequest";
+import { isVideoData } from "@/api/validation";
+import type { VideoData } from "@/types/videoDataType";
 
 export async function fetchDataVideo(
   apiKey: string | undefined,
   channelId: string,
   size: "long" | "medium" | "any"
 ): Promise<VideoData> {
-  const res = await fetch(
-    `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&type=video&videoDuration=${size}&maxResults=1`,
-    { next: { revalidate: 300 } }
+  const key = requireConfig(apiKey, "LATEST_VIDEO");
+  const data = await fetchJsonWithTimeout(
+    `https://www.googleapis.com/youtube/v3/search?key=${key}&channelId=${channelId}&part=snippet,id&order=date&type=video&videoDuration=${size}&maxResults=1`,
+    { next: { revalidate: 300 } },
+    "YouTube API"
   );
-  if (!res.ok) {
-    throw new Error(`YouTube API responded with ${res.status}`);
+
+  if (!isVideoData(data)) {
+    throw new Error("YouTube API returned invalid data");
   }
 
-  return res.json();
+  return data;
 }
+
 export async function fetchDataLive(
   apiKey: string | undefined,
   channelId: string
 ): Promise<VideoData> {
-  const res = await fetch(
-    `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&eventType=completed&type=video&order=date&maxResults=1`,
-    { next: { revalidate: 300 } }
+  const key = requireConfig(apiKey, "LATEST_VIDEO");
+  const data = await fetchJsonWithTimeout(
+    `https://www.googleapis.com/youtube/v3/search?key=${key}&channelId=${channelId}&part=snippet,id&eventType=completed&type=video&order=date&maxResults=1`,
+    { next: { revalidate: 300 } },
+    "YouTube API"
   );
-  if (!res.ok) {
-    throw new Error(`YouTube API responded with ${res.status}`);
+
+  if (!isVideoData(data)) {
+    throw new Error("YouTube API returned invalid data");
   }
 
-  return res.json();
+  return data;
 }

@@ -1,5 +1,5 @@
 import { fetchCreatorData } from "@/api/fetchCreatorData";
-import { CreatorDataType } from "@/types/creatorDataType";
+import type { CreatorDataType } from "@/types/creatorDataType";
 import Image from "next/image";
 import Link from "next/link";
 import { unstable_rethrow } from "next/navigation";
@@ -17,19 +17,21 @@ const FALLBACK: CreatorDataType = {
   },
 };
 
-export default async function CreatorInformation() {
-  let creatorData = FALLBACK;
-
+export async function getCreatorData(): Promise<CreatorDataType> {
   try {
-    const data = await fetchCreatorData();
-    if (data?.creator?.creatorName) {
-      creatorData = data;
-    }
+    return await fetchCreatorData();
   } catch (error) {
     unstable_rethrow(error);
-    creatorData = FALLBACK;
+    console.error("Creator Information", "profile lookup failed");
+    return FALLBACK;
   }
+}
 
+export default function CreatorInformation({
+  creatorData,
+}: {
+  creatorData: CreatorDataType;
+}) {
   const { creator } = creatorData;
 
   return (

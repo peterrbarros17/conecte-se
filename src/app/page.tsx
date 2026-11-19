@@ -4,11 +4,15 @@ import {
   LiveAndSeries,
   getReleasedVideos,
 } from "@/components/ReleasedVideos";
-import CreatorInformation from "@/components/CreatorInformation";
+import CreatorInformation, { getCreatorData } from "@/components/CreatorInformation";
 import SocialMediaIcons from "@/components/SocialMediaIcons";
 
 export default async function Home() {
-  const { latestVideo, latestLive, latestSerie } = await getReleasedVideos();
+  const [videos, creatorData] = await Promise.all([
+    getReleasedVideos(),
+    getCreatorData(),
+  ]);
+  const { latestVideo, latestLive, latestSerie } = videos;
 
   return (
     <main className="relative min-h-screen overflow-hidden">
@@ -33,7 +37,7 @@ export default async function Home() {
         <div className="grid items-stretch gap-6 lg:grid-cols-[minmax(280px,360px)_minmax(0,1fr)] lg:gap-8">
           <aside className="animate-fade-up lg:row-span-2">
             <article className="glass-card flex h-full flex-col overflow-hidden">
-              <CreatorInformation />
+              <CreatorInformation creatorData={creatorData} />
               <div className="mt-auto border-t border-hairline px-6 pb-7 pt-5 sm:px-8">
                 <p className="section-label mb-3 text-center">Redes</p>
                 <SocialMediaIcons />
